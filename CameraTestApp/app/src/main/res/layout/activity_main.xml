@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity" >
+
+    <org.opencv.android.JavaCameraView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:id="@+id/activity_surface_view" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/outline_cameraswitch_black_36"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Switch Camera"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#BBBBBB"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/seek_brightness_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brightness (0)"/>
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seek_brightness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:max="255"
+                android:progress="127"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/seek_blur_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blur (0)"/>
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seek_blur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:max="50"
+                android:progress="0"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/seek_sharpening_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sharpening (0)"/>
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seek_sharpening"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:max="10"
+                android:progress="0"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#BBBBBB"/>
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/check_grayscale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GrayScale"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layout_grayscale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:background="#EEEEEE"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#BBBBBB"/>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/check_cannyedge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CannyEdge"
+                    android:enabled="false"/>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_cannyedgethreashold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/seek_cannyedge_threshold1_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Threshold 1 (50)"/>
+                    <androidx.appcompat.widget.AppCompatSeekBar
+                        android:id="@+id/seek_cannyedge_threshold1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:max="255"
+                        android:progress="50"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/seek_cannyedge_threshold2_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Threshold 2 (200)"/>
+                    <androidx.appcompat.widget.AppCompatSeekBar
+                        android:id="@+id/seek_cannyedge_threshold2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:max="255"
+                        android:progress="200"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#BBBBBB"/>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/check_binarization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Binarization"
+                    android:enabled="false"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_morphology"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:background="#EEEEEE"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/seek_binarization_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Threshold (127)"/>
+                    <androidx.appcompat.widget.AppCompatSeekBar
+                        android:id="@+id/seek_binarization"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:max="255"
+                        android:progress="127"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#BBBBBB"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/morphology_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Morphology"/>
+                    <RadioGroup
+                        android:id="@+id/radiogroup_morphology"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/radio_morphology_erosion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:minHeight="0dp"
+                            android:text="Erosion" />
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/radio_morphology_dilation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="0dp"
+                            android:text="Dilation"/>
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/radio_morphology_opening"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="0dp"
+                            android:text="Opening"/>
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/radio_morphology_closing"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="0dp"
+                            android:text="Closing"/>
+                    </RadioGroup>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/seek_morphology_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Morphology size (0)"/>
+                    <androidx.appcompat.widget.AppCompatSeekBar
+                        android:id="@+id/seek_morphology_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:max="10"
+                        android:progress="0"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
